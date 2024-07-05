@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Date naissance</th>
+          <th>Adresse</th>
+          <th>Téléphone</th>
+          <th>Tuteur</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(member of allMembers; track member){
+            <tr>
+                <td >{{member.last_name}}</td>
+                <td>{{member.first_name}}</td>
+                <td>{{member.birthday | date:'dd/MM/yyyy'}}</td>
+                <td>{{member.address}}</td>
+                <td>{{member.phone}}</td>
+
+                @if(member.status==='mineur' && member.contact){
+                    <td>{{member.contact.first_name}} {{member.contact.last_name}}</td>
+                }
+            </tr>
+        }
+      </tbody>
+</table>

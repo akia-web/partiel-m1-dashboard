@@ -1,4 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, OneToOne } from 'typeorm';
+import { Contact } from './contact';
+import { Course } from './courses';
+import { InscriptionCourse } from './inscription-course';
 
 @Entity()
 export class Member {
@@ -25,4 +28,16 @@ export class Member {
 
     @Column({ length: 50 })
     city: string;
+
+    @Column({length:50})
+    status: string;
+
+    @Column()
+    birthday: Date;
+
+    @OneToOne(() => Contact, contact => contact.member)
+    contact: Contact;
+
+    @OneToMany(() => InscriptionCourse, inscriptionCourse => inscriptionCourse.member)
+    inscriptionCourses: InscriptionCourse[];
 }

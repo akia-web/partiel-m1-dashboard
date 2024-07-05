@@ -1,8 +1,10 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import {getAll } from "./routes/members";
+import 'reflect-metadata';
 import { AppDataSource } from "./config/config-db";
+import { routerMembers } from "./routes/members";
+import { routerCourses } from "./routes/courses";
 
 const app = express();
 const port = 3000;
@@ -11,7 +13,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 AppDataSource.initialize().then(async () => {
-    app.use("/api/members", getAll);
+    app.use("/api/members", routerMembers);
+    app.use("/api/cours", routerCourses)
 })
 
 
