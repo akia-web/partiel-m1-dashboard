@@ -1,16 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-.flex{
-    display: flex;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Fustat", sans-serif;
 }
 
-.height-100vh{
-    height: 100vh;
+
+@import "./style/flex.scss";
+@import "./style/height.scss";
+@import "./style/width.scss";
+@import "./style/padding.scss";
+@import "./style/page.scss";
+
+.cursor{
+    cursor: pointer;
 }
 
-.width-20{
-    width: 20% ;
-}
-
-.width-70{
-    width: 70%;
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }

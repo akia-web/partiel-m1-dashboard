@@ -4,8 +4,6 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
   providedIn: 'root'
 })
 export class MenuService {
-
-  constructor() { }
   step: WritableSignal<string> = signal("dashboard");
 
   updateStep(step : string){

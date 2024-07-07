@@ -1,12 +1,21 @@
-<table>
+<div class="page">
+  <h1>Cours</h1>
+  <button (click)="openPopup = true">Ajouter un cours</button>
+  <form [formGroup]="form">
+    <input type="text" placeholder="recherche" class="research" (input)="getAllCours()" formControlName="search">
+  </form>
+ 
+
+  <table class="tableau">
     <thead>
         <tr>
-          <th>Proffesseur</th>
-          <th>catégorie</th>
-          <th>level</th>
-          <th>age catégorie</th>
-          <th>date</th>
-          <th>participants</th>
+          <th>Professeur</th>
+          <th>Catégorie</th>
+          <th>Level</th>
+          <th>Âge catégorie</th>
+          <th>Jour</th>
+          <th>Heure</th>
+          <th>Participants</th>
         </tr>
       </thead>
       <tbody>
@@ -16,15 +25,27 @@
                 <td>{{cours.category}}</td>
                 <td>{{cours.level }}</td>
                 <td>{{cours.age_category}}</td>
-                <td>{{cours.date | date:'dd/MM/yyyy'}}</td>
+                <td>{{cours.jour}}</td>
+                <td>{{cours.heure}}</td>
 
                 @if(cours.inscriptionCours){
+                  <td>
                     @for(inscription of cours.inscriptionCours; track inscription){
-                        <li>{{inscription.member.first_name}}</li>
+                        <li>{{inscription.member.first_name}} {{inscription.member.last_name}}</li>
                     }
-                    
+                  </td>
                 }
             </tr>
         }
       </tbody>
-</table>
+  </table>
+
+  @if(openPopup){
+    <app-popup (close)="openPopup = false"
+    [name]="name"
+    ></app-popup>
+  }
+
+</div>
+
+

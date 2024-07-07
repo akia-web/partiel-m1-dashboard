@@ -47,13 +47,14 @@ CREATE TABLE course (
     category VARCHAR(50),
     level VARCHAR(50),
     age_category VARCHAR(50),
-    date DATE
+    jour VARCHAR(10),
+    heure VARCHAR(10)
 );
 
-INSERT INTO course (professor, category, level, age_category, date) VALUES
-    ('Fabienne Auchard', 'classique', 'débutant', 'jeune adulte', DATE '2024-08-30'),
-    ('Lucie Pierre', 'modern Jazz', 'intermédiaire', 'enfant',  DATE '2024-09-15'),
-    ('Michael Lebon', 'contemporain', 'avancé', 'adulte',  DATE '2024-09-15');
+INSERT INTO course (professor, category, level, age_category, jour, heure) VALUES
+    ('Fabienne Auchard', 'classique', 'débutant', 'jeune adulte', 'lundi', '18h - 20h'),
+    ('Lucie Pierre', 'modern Jazz', 'intermédiaire', 'enfant', 'mercredi', '10h - 12h'),
+    ('Michael Lebon', 'contemporain', 'avancé', 'adulte',  'mardi', '18h - 20h');
 
 
 CREATE TABLE inscription_course (
@@ -66,6 +67,7 @@ CREATE TABLE inscription_course (
 INSERT INTO inscription_course (member_id, course_id) VALUES 
     (1, 1 ),
     (3, 2),
+    (2, 2),
     (4, 3);
 
 CREATE TABLE internship (

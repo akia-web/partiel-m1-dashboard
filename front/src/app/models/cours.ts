@@ -6,6 +6,7 @@ export interface Cours {
     category: string;
     level: string;
     age_category: string;
-    date: Date;
+    jour: string;
+    heure: string;
     inscriptionCours? : inscriptionCourse[];
 }

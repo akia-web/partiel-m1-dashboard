@@ -4,10 +4,9 @@ WORKDIR /app
 
 COPY package.json package-lock.json tsconfig.json ./
 RUN npm install
-
 COPY . .
 
 RUN npm run build
 
 EXPOSE 3000
-CMD ["npm", "start", "dev"]
+CMD ["npm", "run", "dev"]

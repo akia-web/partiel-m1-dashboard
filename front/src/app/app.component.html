@@ -1,27 +1,6 @@
 <main>
-    <div class="flex">
-        <app-menu class="height-100vh width-20 menu-right"></app-menu>
-
-        @if(pageIs('dashboard')){
-            <app-dashboard class="with-70"></app-dashboard>
-        }@else if (pageIs('members')) {
-            <app-members></app-members>
-        }@else if(pageIs('course')){
-            <app-cours></app-cours>
-
-        }@else if(pageIs('internships')){
-            <app-stages></app-stages>
-        }@else if(pageIs('events')){
-            <app-events></app-events>
-
-        }@else if (pageIs('mails')) {
-            <app-mail></app-mail>
-        }
-        
+    <div class="flex width-100">
+        <app-menu></app-menu>
+        <router-outlet />
     </div>
-
-
-
-
 </main>
-<router-outlet />

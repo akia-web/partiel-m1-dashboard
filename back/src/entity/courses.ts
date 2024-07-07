@@ -19,8 +19,11 @@ export class Course {
     @Column({ length: 50 })
     age_category: string;
 
-    @Column()
-    date: Date;
+    @Column({ length: 10 })
+    jour: string;
+
+    @Column({ length: 10 })
+    heure: string;
 
     @OneToMany(() => InscriptionCourse, inscriptionCourse => inscriptionCourse.course)
     inscriptionCours: InscriptionCourse[];
